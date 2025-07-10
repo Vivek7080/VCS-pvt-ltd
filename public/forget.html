@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Password</title>
+    <style>
+      /* Reset and basic styles */
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url("./images/computer-1867758_1920-min.jpg");
+        background-size: cover; /* Ensures the image covers the entire background */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+      }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .logo {
+        width: 100px;
+        margin: 0 auto 20px;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .btn:hover {
+        background: #0056b3;
+      }
+
+      .footer {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="images/brand-logo-white.png" alt="Logo" class="logo" />
+      <h2>Reset Your Password</h2>
+      <form id="resetPasswordForm">
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input
+            type="password"
+            id="newPassword"
+            name="newPassword"
+            placeholder="Enter new password"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm new password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn">Reset Password</button>
+      </form>
+      <div class="footer">
+        <p>&copy; 2025 KCS. All rights reserved.</p>
+      </div>
+    </div>
+    <script>
+      //   // Extract token from query parameters
+      //   const urlParams = new URLSearchParams(window.location.search);
+      //   const token = urlParams.get("token");
+
+      //   // Debugging output
+      //   console.log("Token from URL parameters:", token);
+
+      //   if (!token) {
+      //     alert("Invalid or missing token.");
+      //   } else {
+      //     console.log("Received token:", token);
+      //     // Proceed with the token
+      //   }
+
+      //   document
+      //     .getElementById("resetPasswordForm")
+      //     .addEventListener("submit", async function (e) {
+      //       e.preventDefault();
+
+      //       const newPassword = document
+      //         .getElementById("newPassword")
+      //         .value.trim();
+      //       const confirmPassword = document
+      //         .getElementById("confirmPassword")
+      //         .value.trim();
+
+      //       if (newPassword !== confirmPassword) {
+      //         alert("Passwords do not match!");
+      //         return;
+      //       }
+
+      //       // Simulate sending new password to the server
+
+      //       try {
+      //         const response = await fetch(
+      //           "http://localhost:5000/user/resetPassword",
+      //           {
+      //             method: "POST",
+      //             headers: { "Content-Type": "application/json" },
+      //             body: JSON.stringify({ newPassword }),
+      //           }
+      //         );
+
+      //         const result = await response.json();
+      //         if (response.ok) {
+      //           console.log("reset-working success");
+      //           alert("reset success");
+      //         } else {
+      //           alert(`Error: ${result.message}`);
+      //         }
+      //       } catch (error) {
+      //         console.log("error occured", error.message);
+      //         alert("error in the reset-password");
+      //       }
+      //     });
+
+      //   document
+      //     .getElementById("resetPasswordForm")
+      //     .addEventListener("submit", async function (e) {
+      //       e.preventDefault();
+
+      //       const newPassword = document
+      //         .getElementById("newPassword")
+      //         .value.trim();
+      //       const confirmPassword = document
+      //         .getElementById("confirmPassword")
+      //         .value.trim();
+
+      //       if (newPassword !== confirmPassword) {
+      //         alert("Passwords do not match!");
+      //         return;
+      //       }
+      //       console.log("new password = ", newPassword);
+      //       console.log("confirmPassword  = ", confirmPassword);
+
+      //       // Extract token from query parameters
+      //       const urlParams = new URLSearchParams(window.location.search);
+      //       const token = urlParams.get("token");
+
+      //       if (!token) {
+      //         alert("Token is missing. Please try again.");
+      //         return;
+      //       }
+
+      //       // Send request to reset the password
+      //       try {
+      //         const response = await fetch(
+      //           "http://localhost:5000/user/resetPassword",
+      //           {
+      //             method: "POST",
+      //             headers: {
+      //               "Content-Type": "application/json",
+      //               Authorization: `Bearer ${token}`, // Add token here
+      //             },
+      //             body: JSON.stringify({ newPassword }),
+      //           }
+      //         );
+
+      //         const result = await response.json();
+      //         if (response.ok) {
+      //           console.log("Reset successful");
+      //           alert("Password reset successfully!");
+      //           window.location.href = "/login.html"; // Redirect to login
+      //         } else {
+      //           alert(`Error: ${result.message}`);
+      //         }
+      //       } catch (error) {
+      //         // console.error("Error occurred:", error.message);
+      //         alert("An error occurred while resetting the password.");
+      //       }
+      //     });
+
+      document
+        .getElementById("resetPasswordForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const newPassword = document
+            .getElementById("newPassword")
+            .value.trim();
+          const confirmPassword = document
+            .getElementById("confirmPassword")
+            .value.trim();
+
+          if (newPassword !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+          }
+          console.log("new password = ", newPassword);
+          console.log("confirmPassword  = ", confirmPassword);
+
+          // Extract token from query parameters
+          const urlParams = new URLSearchParams(window.location.search);
+          const token = urlParams.get("token");
+
+          if (!token) {
+            alert("Token is missing. Please try again.");
+            return;
+          }
+
+          // Send request to reset the password
+          try {
+            const response = await fetch(
+              `http://localhost:5000/user/resetPassword/${token}`, // Pass token in the URL
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ passwordd: newPassword }), // Fix key name here
+              }
+            );
+
+            const result = await response.json();
+            if (response.ok) {
+              console.log("Reset successful");
+              alert("Password reset successfully!");
+              window.location.href = "index.html";
+            } else {
+              alert(`Error: ${result.message}`);
+            }
+          } catch (error) {
+            alert("An error occurred while resetting the password.");
+          }
+        });
+    </script>
+  </body>
+</html>

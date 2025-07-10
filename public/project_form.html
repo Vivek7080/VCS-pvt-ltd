@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brand Consulting Form</title>
+
+    <!-- CSS Links -->
+    <link
+      rel="stylesheet"
+      href="css/colorvariants/default.css"
+      id="defaultscheme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/project_bootstrap.min.css" />
+    <link rel="stylesheet" href="css/project_style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/colorswitcher.css" />
+  </head>
+  <body>
+    <main>
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="images/brand-logo-white.png" alt="BeRifma" />
+        </div>
+        <div class="logo-text">Project Description Form</div>
+      </div>
+      <div class="container">
+        <div class="wrapper">
+          <div class="row">
+            <!-- Left Section -->
+            <div class="col-md-6">
+              <div class="left">
+                <article class="side-text">
+                  <h2>Let's Scale Your Brand, Together</h2>
+                  <p>Get started at <span>start@kcstech.in</span></p>
+                </article>
+                <div class="left-img">
+                  <img src="images/left-bg.gif" alt="BeRifma" />
+                  <img src="images/thegem-business-theme.jpg" alt="BeRifma" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="col-md-5 offset-md-1">
+              <div class="right">
+                <form class="projectForm" id="projectForm">
+                  <!-- Step 1 -->
+                  <div id="step1" class="form-inner lightSpeedIn">
+                    <div class="input-field">
+                      <label
+                        ><i class="fa-regular fa-user"></i>Client ID<span
+                          >*</span
+                        ></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        name="ClientID"
+                        id="clientID"
+                        placeholder="Type Client Email"
+                      />
+                    </div>
+                    <div class="input-field">
+                      <label
+                        ><i class="fa-regular fa-user"></i>Project Name<span
+                          >*</span
+                        ></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        name="ProjectName"
+                        id="ProjectName"
+                        placeholder="Type Project Name"
+                      />
+                    </div>
+                    <div class="input-field">
+                      <label
+                        ><i class="fa-regular fa-paper-plane"></i>Company /
+                        Client<span>*</span></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        name="CompanyName"
+                        id="company"
+                        placeholder="Type Company Name"
+                      />
+                    </div>
+                    <div class="input-field">
+                      <label
+                        ><i class="fa-regular fa-dollar-sign"></i>Project
+                        Cost<span>*</span></label
+                      >
+                      <input
+                        required
+                        type="number"
+                        name="ProjectCost"
+                        id="ProjectCost"
+                        placeholder="Enter Total Cost"
+                      />
+                    </div>
+                    <div class="input-field">
+                      <label
+                        ><i class="fa-regular fa-dollar-sign"></i>Advance
+                        Payment<span>*</span></label
+                      >
+                      <input
+                        required
+                        type="number"
+                        name="AdvancePayment"
+                        id="AdvancePayment"
+                        placeholder="Enter Advance Payment"
+                      />
+                    </div>
+                    <div class="input-field">
+                      <label
+                        ><i class="fa-regular fa-dollar-sign"></i>Pending
+                        Payment<span>*</span></label
+                      >
+                      <input
+                        required
+                        type="number"
+                        name="PendingPayment"
+                        id="PendingPayment"
+                        placeholder="Enter Pending Payment"
+                      />
+                    </div>
+                    <!-- Project Type -->
+                    <div class="check-field">
+                      <label
+                        ><i class="fa-regular fa-briefcase"></i>Project
+                        Type<span>*</span></label
+                      >
+                      <div class="row">
+                        <div class="col-md-6">
+                         
+                    <div class="check-single">
+                        <input type="checkbox" name="ProjectType" value="Web Development" />
+                        <label>Web Development</label>
+                      </div>
+                      <div class="check-single">
+                        <input type="checkbox" name="ProjectType" value="Mobile App Development" />
+                        <label>Mobile App Development</label>
+                      </div>
+                      <div class="check-single">
+                        <input type="checkbox" name="ProjectType" value="Software Development" />
+                        <label>Software Development</label>
+                      </div>
+                      <div class="check-single">
+                        <input type="checkbox" name="ProjectType" value="UI/UX Design" />
+                        <label>UI/UX Design</label>
+                      </div>
+                      <div class="check-single">
+                        <input type="checkbox" name="ProjectType" value="ERP" />
+                        <label>ERP</label>
+                      </div>
+                      <div class="check-single">
+                        <input type="checkbox" name="ProjectType" value="CRM" />
+                        <label>CRM</label>
+                      </div>
+                    <div class="input-field">
+                      <label
+                        ><i class="fa-regular fa-laptop"></i>Platform
+                        Preference<span>*</span></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        name="PlatformPreference"
+                        id="PlatformPreference"
+                        placeholder="e.g., Web/Android/iOS"
+                      />
+                    </div>
+                    <div class="input-field">
+                      <label
+                        ><i class="fa-regular fa-calendar"></i>Start Date<span
+                          >*</span
+                        ></label
+                      >
+                      <input
+                        required
+                        type="date"
+                        name="StartDate"
+                        id="StartDate"
+                      />
+                    </div>
+                    <div class="input-field">
+                      <label
+                        ><i class="fa-regular fa-calendar"></i>End Date<span
+                          >*</span
+                        ></label
+                      >
+                      <input required type="date" name="EndDate" id="EndDate" />
+                    </div>
+                    <div class="input-field">
+                      <label
+                        ><i class="fa-regular fa-tasks"></i>Project Status<span
+                          >*</span
+                        ></label
+                      >
+                      <input
+                        required
+                        type="text"
+                        name="ProjectStatus"
+                        id="ProjectStatus"
+                        placeholder="e.g., Active/Completed"
+                      />
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="submit">
+                      <button type="submit" id="sub">
+                        Submit Project <i class="fa-solid fa-thumbs-up"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+     
+      document
+        .getElementById("projectForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+
+          // Convert FormData to object
+          const values = Object.fromEntries(formData.entries());
+
+          // Collect and validate ProjectType
+          const ProjectType = Array.from(
+            document.querySelectorAll('input[name="ProjectType"]:checked')
+          ).map((input) => input.value);
+
+          if (ProjectType.length === 0) {
+            alert("Please select at least one project type.");
+            return;
+          }
+
+          values["ProjectType"] = ProjectType;
+
+          console.log(values);
+
+
+          const token = localStorage.getItem("jwt");
+    if (!token) {
+        alert("You are not logged in. Please log in first.");
+        return;
+    }
+
+          // Submit data
+          try {
+            const response = await fetch(
+              "http://localhost:5000/project/ProjectSignupForm",
+              {
+             
+                method: "POST",
+
+              headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`  // ✅ Ensure token is included
+            },
+            body: JSON.stringify(values),
+
+          });
+            const result = await response.json();
+            if (response.ok) {
+              alert("Project submitted successfully!");
+              window.location.href = "dashboard.html";
+            } else {
+              alert("Submission failed: " + result.message);
+            }
+          } catch (error) {
+            console.error("Error:", error.message);
+            alert("An error occurred. Please try again.");
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+.authfy-panel-left {
+    background-color: #f6ebeb;
+    padding: 30px;
+    /* border-radius: 10px; */
+    box-shadow: 0 4px 6px rgba(21, 21, 21, 0.826);
+    height: 460px;
+    color: black;
+  }
+  
+  .brand-logo img {
+    border-radius: 1%;
+    height: 80px;
+    width : 180px;
+
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .brand-logo img:hover {
+    transform: scale(1.1);
+  }
+  
+  .headline {
+    background-color: #b7b3e057;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-sizing: border-box;
+    height: 300px;
+    padding-bottom: 20px;
+  }
+  
+  .mission,
+  .vision {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  .mission span,
+  .vision span {
+    font-style: italic;
+  }
+  
+  hr {
+    border: 1px solid #ddd;
+  }
+  
+.brand-col
+{
+    position: relative;
+    top: -36px;
+}

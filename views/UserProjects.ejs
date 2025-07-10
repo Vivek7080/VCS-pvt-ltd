@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Projects</title>
+  </head>
+  <body>
+    <h1>User Projects</h1>
+    <table border="1">
+      <tr>
+        <th>Project Name</th>
+        <th>Company Name</th>
+        <th>Project Cost</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+      <% projects.forEach(project => { %>
+      <tr>
+        <td><%= project.ProjectName %></td>
+        <td><%= project.CompanyName %></td>
+        <td><%= project.ProjectCost %></td>
+        <td><%= project.StartDate.toDateString() %></td>
+        <td><%= project.EndDate.toDateString() %></td>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>

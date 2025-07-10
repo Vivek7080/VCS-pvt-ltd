@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project List</title>
+  </head>
+  <body>
+    <div id="project-container" class="row">
+      <!-- Projects will be dynamically inserted here -->
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          // Retrieve token from localStorage
+          const token = localStorage.getItem("jwt");
+
+          if (!token) {
+            alert("You are not logged in!");
+            return;
+          }
+
+          const response = await fetch(
+            "http://localhost:5000/project/GetUserProjects",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const { projects } = await response.json();
+
+          // Call function to display projects in both table & cards
+
+          displayProjectsInCards(projects);
+        } catch (error) {
+          console.error("Error fetching projects:", error);
+          alert("There was an error fetching the project data.");
+        }
+      });
+
+      function displayProjectsInCards(projects) {
+        const projectContainer = document.getElementById("project-container"); // Reference to parent div
+
+        projects.forEach((project) => {
+          const projectCard = `
+                <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body" style="background-color: rgb(134, 195, 235);">
+                           
+                            <p class=" mb-1">Project Name</p>
+                            <h2 class="mb-1 fw-bold">${project.ProjectName}</h2>
+                            <span class="mb-1 text-muted"><span class="text-success">
+                                
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body" style="background-color: rgb(236, 172, 42);">
+                           
+                            <p class=" mb-1">Company/Client</p>
+                            <h2 class="mb-1 fw-bold">${project.CompanyName}</h2>
+                            <span class="mb-1 text-muted"><span class="text-success">
+                                
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body" style="background-color: rgb(69, 210, 210);">
+                           
+                            <p class=" mb-1">Project Cost</p>
+                            <h2 class="mb-1 fw-bold">${project.ProjectCost}</h2>
+                            <span class="mb-1 text-muted"><span class="text-success">
+                                
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body" style="background-color: rgb(239, 87, 87);">
+                           
+                            <p class=" mb-1">Advance Payment</p>
+                            <h2 class="mb-1 fw-bold">${project.AdvancePayment}</h2>
+                            <span class="mb-1 text-muted"><span class="text-success">
+                                
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body" style="background-color: rgb(237, 137, 244);">
+                           
+                            <p class=" mb-1">Pending Payment</p>
+                            <h2 class="mb-1 fw-bold">${project.PendingPayment}</h2>
+                            <span class="mb-1 text-muted"><span class="text-success">
+                                
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body" style="background-color: rgb(125, 71, 190);">
+                           
+                            <p class=" mb-1">Project Type</p>
+                            <h2 class="mb-1 fw-bold">${project.ProjectType}</h2>
+                            <span class="mb-1 text-muted"><span class="text-success">
+                                
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body" style="background-color: rgb(229, 127, 161);">
+                           
+                            <p class=" mb-1">Platform Preference</p>
+                            <h2 class="mb-1 fw-bold">${project.PlatformPreference}</h2>
+                            <span class="mb-1 text-muted"><span class="text-success">
+                                
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body" style="background-color: rgba(122, 240, 240, 0.733);">
+                           
+                            <p class=" mb-1">Start Date</p>
+                            <h2 class="mb-1 fw-bold">${project.StartDate}</h2>
+                            <span class="mb-1 text-muted"><span class="text-success">
+                                
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body" style="background-color: rgb(198, 226, 35);">
+                           
+                            <p class=" mb-1">End Date</p>
+                            <h2 class="mb-1 fw-bold">${project.EndDate}</h2>
+                            <span class="mb-1 text-muted"><span class="text-success">
+                                
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body" style="background-color: rgb(173, 173, 171);">
+                           
+                            <p class=" mb-1">Project Status</p>
+                            <h2 class="mb-1 fw-bold">${project.ProjectStatus}</h2>
+                            <span class="mb-1 text-muted"><span class="text-success">
+                                
+                        </div>
+                    </div>
+                </div>
+
+          `;
+
+          projectContainer.innerHTML += projectCard;
+        });
+      }
+    </script>
+  </body>
+</html>

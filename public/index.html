@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- For Search Engine Meta Data  -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="yoursite.com" />
+    <title>Authfy : Login-07</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/icon"
+      href="images/favicon-16x16.png"
+    />
+    <!-- Main structure css file -->
+    <link rel="stylesheet" href="css/login7-style.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/left.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if IE]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Start Preloader -->
+    <div id="preload-block">
+      <div class="square-block"></div>
+    </div>
+    <!-- Preloader End -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <div
+          class="authfy-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3"
+        >
+          <div class="col-sm-5 authfy-panel-left">
+            <div class="brand-col">
+              <div class="headline">
+                <!-- brand-logo start -->
+                <div class="brand-logo">
+                  <img
+                    src="images/brand-logo-white.png"
+                    width="150"
+                    alt="brand-logo"
+                  />
+                </div>
+                <!-- ./brand-logo -->
+                <i>
+                  Mission: Empowering innovation through smart, scalable, and
+                  seamless software solutions.
+                </i>
+                <br />
+                <br />
+                <br />
+                <i>
+                  Vision: To be a global leader in transforming ideas into
+                  impactful digital experiences.
+                </i>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-7 authfy-panel-right">
+            <!-- authfy-login start -->
+            <div class="authfy-login">
+              <!-- panel-login start -->
+              <div class="authfy-panel panel-login text-center active">
+                <div class="authfy-heading">
+                  <h3 class="auth-title">Login to your account</h3>
+                  <p>
+                    Don’t have an account?
+                    <a class="lnk-toggler" data-panel=".panel-signup" href="#"
+                      >Sign Up Free!</a
+                    >
+                  </p>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12">
+                    <!-- login form starts here -->
+                    <form
+                      name="loginForm"
+                      class="loginForm"
+                      action="#"
+                      method="POST"
+                    >
+                      <div class="form-group wrap-input">
+                        <input
+                          type="email"
+                          class="form-control email"
+                          name="email"
+                          placeholder="Email address"
+                        />
+                        <span class="focus-input"></span>
+                      </div>
+                      <div class="form-group wrap-input">
+                        <div class="pwdMask">
+                          <input
+                            type="password"
+                            class="form-control password"
+                            name="passwordd"
+                            placeholder="Password"
+                          />
+                          <span class="focus-input"></span>
+                          <span class="fa fa-eye-slash pwd-toggle"></span>
+                        </div>
+                      </div>
+                      <!-- start remember-row -->
+                      <div class="row remember-row">
+                        <div class="col-xs-6 col-sm-6">
+                          <label class="checkbox text-left">
+                            <input type="checkbox" value="remember-me" />
+                            <span class="label-text">Remember me</span>
+                          </label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                          <p class="forgotPwd">
+                            <a
+                              class="lnk-toggler"
+                              data-panel=".panel-forgot"
+                              href="#"
+                              >Forgot password?</a
+                            >
+                          </p>
+                        </div>
+                      </div>
+                      <!-- ./remember-row -->
+                      <div class="form-group">
+                        <button
+                          class="btn btn-lg btn-primary btn-block"
+                          type="submit"
+                        >
+                          Login with email
+                        </button>
+                      </div>
+                    </form>
+
+                    <!-- login form ends here -->
+                  </div>
+                </div>
+              </div>
+              <!-- ./panel-login -->
+              <!-- panel-signup start -->
+              <div class="authfy-panel panel-signup text-center">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12">
+                    <div class="authfy-heading">
+                      <h3 class="auth-title">Sign up for free!</h3>
+                    </div>
+                    <!-- signup form starts from here -->
+                    <form name="signupForm" class="signupForm">
+                      <div class="form-group wrap-input">
+                        <input
+                          type="email"
+                          class="form-control"
+                          name="email"
+                          placeholder="Email address"
+                          required
+                        />
+                        <span class="focus-input"></span>
+                      </div>
+                      <div class="form-group wrap-input">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fullname"
+                          placeholder="Full name"
+                          required
+                        />
+                        <span class="focus-input"></span>
+                      </div>
+                      <div class="form-group wrap-input">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="mobile"
+                          placeholder="Mobile number"
+                          required
+                        />
+                        <span class="focus-input"></span>
+                      </div>
+                      <div class="form-group wrap-input">
+                        <div class="pwdMask">
+                          <input
+                            type="password"
+                            class="form-control"
+                            name="passwordd"
+                            placeholder="Password"
+                            required
+                          />
+                          <span class="focus-input"></span>
+                          <span class="fa fa-eye-slash pwd-toggle"></span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <button
+                          class="btn btn-lg btn-primary btn-block"
+                          type="submit"
+                        >
+                          Sign up with email
+                        </button>
+                      </div>
+                    </form>
+
+                    <a class="lnk-toggler" data-panel=".panel-login" href="#"
+                      >Already have an account?</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- ./panel-signup -->
+              <!-- panel-forget start -->
+
+              <div class="authfy-panel panel-forgot">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12">
+                    <div class="authfy-heading">
+                      <h3 class="auth-title">Recover your password</h3>
+                      <p>
+                        Fill in your e-mail address below and we will send you
+                        an email with further instructions.
+                      </p>
+                    </div>
+                    <form
+                      name="forgetForm"
+                      class="forgetForm"
+                      action="#"
+                      method="POST  "
+                    >
+                      <div class="form-group wrap-input">
+                        <input
+                          type="email"
+                          class="form-control"
+                          name="email"
+                          placeholder="Email address"
+                        />
+                        <span class="focus-input"></span>
+                      </div>
+                      <div class="form-group">
+                        <button
+                          class="btn btn-lg btn-primary btn-block"
+                          type="submit"
+                        >
+                          Recover your password
+                        </button>
+                      </div>
+                      <div class="form-group">
+                        <a
+                          class="lnk-toggler"
+                          data-panel=".panel-login"
+                          href="#"
+                          >Already have an account?</a
+                        >
+                      </div>
+                      <div class="form-group">
+                        <a
+                          class="lnk-toggler"
+                          data-panel=".panel-signup"
+                          href="#"
+                          >Don’t have an account?</a
+                        >
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- ./panel-forgot -->
+            </div>
+            <!-- ./authfy-login -->
+          </div>
+        </div>
+      </div>
+      <!-- ./row -->
+    </div>
+    <!-- ./container -->
+    <!-- Javascript Files -->
+    <script>
+      document
+        .querySelector(".signupForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          // Fetch values from form inputs
+          const email = document
+            .querySelector('.signupForm input[name="email"]')
+            .value.trim();
+          const fullname = document
+            .querySelector('.signupForm input[name="fullname"]')
+            .value.trim();
+          const mobile = document
+            .querySelector('.signupForm input[name="mobile"]')
+            .value.trim();
+          const passwordd = document
+            .querySelector('.signupForm input[name="passwordd"]')
+            .value.trim();
+
+          // Log form values for debugging
+          console.log("Form Values:", { email, fullname, mobile, passwordd });
+
+          // Validate input fields
+          if (!email || !fullname || !mobile || !passwordd) {
+            alert("All fields are required.");
+            return;
+          }
+          try {
+            const response = await fetch("http://localhost:5000/user/signup", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, fullname, mobile, passwordd }),
+            });
+            const result = await response.json();
+            if (response.ok) {
+              alert("Signup successful!");
+
+              window.location.href = "add_distribute.html";
+            } else {
+              alert(`Error: ${result.message}`);
+            }
+          } catch (error) {
+            console.error("Signup Error:", error.message);
+            alert("An error occurred. Please try again later.");
+          }
+        });
+
+      document
+        .querySelector(".loginForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const email = document
+            .querySelector('.loginForm input[name="email"]')
+            .value.trim();
+          const passwordd = document
+            .querySelector('.loginForm input[name="passwordd"]')
+            .value.trim();
+
+          console.log("Form values", { email, passwordd });
+
+          if (!email || !passwordd) {
+            alert("All fields required");
+            return;
+          }
+
+          try {
+            const response = await fetch("http://localhost:5000/user/login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, passwordd }),
+            });
+
+            const result = await response.json();
+            console.log("API Response before token:", result);
+
+            if (response.ok) {
+              localStorage.setItem("jwt", result.token);
+              alert("Login successful!");
+
+              console.log("API Response after token : ", result);
+
+              const user = result.user;
+              console.log("User Data from Backend:", user);
+
+              if (!user || !user.role) {
+                console.warn("User role not found in response.");
+                return;
+              }
+
+              console.log("Logged-in User Role:", user.role);
+
+              if (user.role == "admin") {
+                console.log("Redirecting to Admin Dashboard");
+                window.location.href = "AdminHomePage.html";
+              } else {
+                console.log("Redirecting to User Dashboard");
+                window.location.href = "UserHomePage.html";
+              }
+            } else {
+              alert(`Error: ${result.message}`);
+            }
+          } catch (error) {
+            console.error("Login error:", error.message);
+            alert("An error occurred. Please try again later.");
+          }
+        });
+      // forgetForm
+
+      document
+        .querySelector(".forgetForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          // fetch the value from the input
+          const email = document
+            .querySelector(".forgetForm input[name=email]")
+            .value.trim();
+
+          console.log("form value", { email });
+
+          if (!email) {
+            alert("all fields are required");
+          }
+
+          try {
+            const response = await fetch(
+              "http://localhost:5000/user/forget_pass",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
+              }
+            );
+
+            const result = await response.json();
+            if (response.ok) {
+              console.log("forget-working success");
+              alert("forgetting success");
+            } else {
+              alert(`Error: ${result.message}`);
+            }
+          } catch (error) {
+            console.log("error occured", error.message);
+            alert("error in the forgot-password");
+          }
+        });
+    </script>
+
+    <!-- initialize jQuery Library -->
+    <script src="script/jquery-2.2.4.min.js"></script>
+
+    <!-- for Bootstrap js -->
+    <script src="script/bootstrap.min.js"></script>
+
+    <!-- Custom js-->
+    <script src="script/custom.js"></script>
+  </body>
+</html>

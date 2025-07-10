@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile View</title>
+
+    <link rel="stylesheet" type="text/css" href="css/ProfileBootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/ProfileStyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/ProfileFontAwesomeMin.css"
+    />
+    <link
+      rel="manifest"
+      href="script/manifest.json"
+      data-pwa-version="set_in_manifest_and_pwa_js"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/ALP_WPA_APP/app/icons/icon-192x192.png"
+    />
+    <link href="css/ProfileFontAwesome.css" rel="stylesheet" />
+  </head>
+
+  <body class="theme-light" data-highlight="blue2">
+    <div id="preloader">
+      <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+
+    <div id="page">
+      <div class="header header-fixed header-auto-show header-logo-app">
+        <a href="index.html" class="header-title">Profile</a>
+        <a href="#" data-menu="menu-main" class="header-icon header-icon-1"
+          ><i class="fas fa-bars"></i
+        ></a>
+        <a
+          href="#"
+          data-toggle-theme
+          class="header-icon header-icon-2 show-on-theme-dark"
+          ><i class="fas fa-sun"></i
+        ></a>
+        <a
+          href="#"
+          data-toggle-theme
+          class="header-icon header-icon-2 show-on-theme-light"
+          ><i class="fas fa-moon"></i
+        ></a>
+        <a
+          href="#"
+          data-menu="menu-highlights"
+          class="header-icon header-icon-3"
+          ><i class="fas fa-brush"></i
+        ></a>
+      </div>
+
+      <div id="footer-bar" class="footer-bar-5">
+        <div style="width: 100%">
+          <p
+            style="
+              text-align: center;
+              background-color: rgb(205, 205, 244);
+              color: rgb(107, 107, 107);
+            "
+          >
+            Desinged with ❤️ by Kashi Consultancy Service All rights reserved
+          </p>
+        </div>
+      </div>
+
+      <div class="page-content">
+        <div class="page-title page-title-large">
+          <h2 data-username="support@jkct.in"></h2>
+          <a
+            href="#"
+            data-menu="menu-main"
+            class="bg-fade-highlight-light shadow-xl preload-img"
+            data-src="../../Alpine_App_Assets/images/avatars/5s.png"
+          ></a>
+        </div>
+        <div class="card header-card shape-rounded" data-card-height="350">
+          <div class="card-overlay bg-highlight opacity-95"></div>
+          <div class="card-overlay dark-mode-tint"></div>
+          <div
+            class="card-bg preload-img"
+            data-src="../../Alpine_App_Assets/images/pictures/20s.jpg"
+          ></div>
+        </div>
+        <div class="card card-style">
+          <div class="content">
+            <div class="d-flex">
+              <div class="w-45 border-right pe-3 border-green-dark">
+                <img
+                  src="colour_admin_assets/images/brand-logos/desktop-logo.png"
+                  width="200"
+                />
+              </div>
+              <div class="w-55 ps-3 pt-2">
+                <h5>
+                  <a href="http://kcstech.in/" target="_blank"
+                    >Visit @KCSTech</a
+                  >
+                </h5>
+                <h5>KASHI CONSULTANCY SERVICE , SUDDHIPUR VARANASI</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--\ User Details Container -->
+        <div id="user-container" class="card card-style">
+          <div class="content">
+            <h3 class="mb-0">Profile Details</h3>
+            <p>Current subscription information for your profile.</p>
+
+            <div id="user-details">
+              <p>Loading user data...</p>
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="forget.html"
+          class="btn btn-full bg-highlight rounded-sm shadow-xl"
+          >Update Password</a
+        >
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const token = localStorage.getItem("jwt");
+          if (!token) {
+            alert("You are not logged in!");
+            return;
+          }
+
+          console.log("Token received in frontend:", token);
+
+          const response = await fetch(
+            "http://localhost:5000/user/GetUserData",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          console.log("Calling API successfully");
+          console.log("Response:", response); // Log response object
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log("Full API Response:", data); // Log entire response
+
+          // Extract userData properly
+          const userData = data.userData || data; // Try both cases
+
+          if (!userData || typeof userData !== "object") {
+            throw new Error("Invalid response format: userData is missing");
+          }
+
+          console.log("Extracted userData:", userData);
+          displayUserData(userData);
+        } catch (error) {
+          console.log("Error fetching user data:", error);
+          document.getElementById(
+            "user-details"
+          ).innerHTML = `<tr><td colspan="2" style="color: red; text-align: center;">Error loading user data.</td></tr>`;
+        }
+      });
+
+      function displayUserData(userData) {
+        const userDetails = document.getElementById("user-details");
+
+        const user = userData.user;
+        userDetails.innerHTML = `
+                <div class="row mb-0">
+                    <div class="col-4"><h5 class="font-500 opacity-80 font-13">Client ID</h5></div>
+                    <div class="col-8"><h5 class="font-600 font-13">${
+                      user._id
+                    }</h5></div>
+
+                    <div class="divider w-100 mt-2 mb-2"></div>
+
+                    <div class="col-4"><h5 class="font-500 opacity-80 font-13">Full Name</h5></div>
+                    <div class="col-8"><h5 class="font-600 font-13">${
+                      user.fullname
+                    }</h5></div>
+
+                    <div class="divider w-100 mt-2 mb-2"></div>
+
+                    <div class="col-4"><h5 class="font-500 opacity-80 font-13">Email</h5></div>
+                    <div class="col-8"><h5 class="font-600 font-13">${
+                      user.email
+                    }</h5></div>
+
+                    <div class="divider w-100 mt-2 mb-2"></div>
+
+                    <div class="col-4"><h5 class="font-500 opacity-80 font-13">Phone Number</h5></div>
+                    <div class="col-8"><h5 class="font-600 font-13">${
+                      user.mobile || "N/A"
+                    }</h5></div>
+                </div>
+            `;
+      }
+    </script>
+
+    <script src="script/jquery-3.4.1.js"></script>
+    <script src="script/ProfileBootstrap_min.js"></script>
+    <script src="script/ProfileCustom.js"></script>
+  </body>
+</html>
+

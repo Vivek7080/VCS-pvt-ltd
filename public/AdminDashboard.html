@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <div class="content-body">
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="../../../app-assets/vendors/css/tables/datatable/datatables.min.css"
+        />
+        <link href="/Content/toastr.css" rel="stylesheet" />
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Filters</h4>
+            <a class="heading-elements-toggle"
+              ><i class="fa fa-ellipsis-v font-medium-3"></i
+            ></a>
+            <div class="heading-elements">
+              <ul class="list-inline mb-0">
+                <li>
+                  <a data-action="collapse"
+                    ><i class="feather icon-chevron-down"></i
+                  ></a>
+                </li>
+                <li>
+                  <a data-action=""
+                    ><i class="feather icon-rotate-cw users-data-filter"></i
+                  ></a>
+                </li>
+                <li>
+                  <a data-action="close"><i class="feather icon-x"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <form action="/Admin/Account/UserList" method="post">
+            <div class="card-content collapse show">
+              <div class="card-body">
+                <div class="users-list-filter">
+                  <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                      <label for="start">From Date</label>
+                      <fieldset class="form-group">
+                        <input type="date" name="start" class="form-control" />
+                      </fieldset>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                      <label for="end">To Date</label>
+                      <fieldset class="form-group">
+                        <input type="date" name="end" class="form-control" />
+                      </fieldset>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                      <label for="end">Enter UserName</label>
+                      <fieldset class="form-group">
+                        <input
+                          type="text"
+                          name="txtUserName"
+                          id="txtUserName"
+                          class="form-control"
+                        />
+                      </fieldset>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                      <label for="end"></label>
+                      <fieldset class="form-group">
+                        <button
+                          type="submit"
+                          class="btn btn-success waves-effect waves-light"
+                        >
+                          Show
+                        </button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <hr />
+          <br />
+          <div class="card-body">
+            <div class="table table-responsive">
+              <div
+                id="tbl1_wrapper"
+                class="dataTables_wrapper dt-bootstrap4 no-footer"
+              >
+                <div class="dt-buttons btn-group">
+                  <button
+                    class="btn btn-secondary buttons-copy buttons-html5"
+                    tabindex="0"
+                    aria-controls="tbl1"
+                  >
+                    <span>Copy</span>
+                  </button>
+                  <button
+                    class="btn btn-secondary buttons-pdf buttons-html5"
+                    tabindex="0"
+                    aria-controls="tbl1"
+                  >
+                    <span>PDF</span>
+                  </button>
+                  <button
+                    class="btn btn-secondary"
+                    tabindex="0"
+                    aria-controls="tbl1"
+                  >
+                    <span>JSON</span>
+                  </button>
+                  <button
+                    class="btn btn-secondary buttons-print"
+                    tabindex="0"
+                    aria-controls="tbl1"
+                  >
+                    <span>Print</span>
+                  </button>
+                </div>
+                <div id="tbl1_filter" class="dataTables_filter">
+                  <label
+                    >Search:<input
+                      type="search"
+                      class="form-control form-control-sm"
+                      placeholder=""
+                      aria-controls="tbl1"
+                  /></label>
+                </div>
+                <table
+                  id="tbl1"
+                  class="table table-striped dataex-html5-selectors dataTable no-footer"
+                  role="grid"
+                  aria-describedby="tbl1_info"
+                >
+                  <thead>
+                    <tr role="row">
+                      <th
+                        class="sorting_asc"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-sort="ascending"
+                        aria-label="UserName: activate to sort column descending"
+                        style="width: 65.7125px"
+                      >
+                        UserName
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Email: activate to sort column ascending"
+                        style="width: 199.15px"
+                      >
+                        Email
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Phone Number: activate to sort column ascending"
+                        style="width: 63.6875px"
+                      >
+                        Phone Number
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Full Name: activate to sort column ascending"
+                        style="width: 81.4375px"
+                      >
+                        Full Name
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Address: activate to sort column ascending"
+                        style="width: 50.7125px"
+                      >
+                        Address
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Bank Name: activate to sort column ascending"
+                        style="width: 43.525px"
+                      >
+                        Bank Name
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Account Number: activate to sort column ascending"
+                        style="width: 71.3375px"
+                      >
+                        Account Number
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="IFSC Code: activate to sort column ascending"
+                        style="width: 79.4875px"
+                      >
+                        IFSC Code
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Account Create On: activate to sort column ascending"
+                        style="width: 53.65px"
+                      >
+                        Account Create On
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Affiliate User Id: activate to sort column ascending"
+                        style="width: 89.9875px"
+                      >
+                        Affiliate User Id
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Affiliate Name: activate to sort column ascending"
+                        style="width: 75.5375px"
+                      >
+                        Affiliate Name
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Edit Detail: activate to sort column ascending"
+                        style="width: 82.05px"
+                      >
+                        Edit Detail
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="tbl1"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Reset Password: activate to sort column ascending"
+                        style="width: 108.55px"
+                      >
+                        Reset Password
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr role="row" class="odd">
+                      <td style="font-size: smaller" class="sorting_1">
+                        JKCT003944
+                      </td>
+                      <td style="font-size: smaller">shree2001218@gmail.com</td>
+                      <td style="font-size: smaller">9172803676</td>
+                      <td style="font-size: small">SHREEKANT DEEPAK SWAMI</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">Not Available</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">1/6/2025 8:22:02 PM</td>
+                      <td style="font-size: small">JKCT468920</td>
+                      <td style="font-size: small">
+                        SHREEKANT DEEPAK SWAMI SWAMI
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/EditDetail?UserName=JKCT003944"
+                          class="btn btn-warning rounded-0 waves-effect waves-light"
+                          ><i class="fa fa-edit"></i> Edit Detail</a
+                        >
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/R_Password?UserName=JKCT003944"
+                          class="btn btn-secondary waves-effect waves-light"
+                          ><i class="fa fa-key"></i> Reset Password</a
+                        >
+                      </td>
+                    </tr>
+                    <tr role="row" class="even">
+                      <td style="font-size: smaller" class="sorting_1">
+                        JKCT010697
+                      </td>
+                      <td style="font-size: smaller">
+                        swamideepak747@gmail.com
+                      </td>
+                      <td style="font-size: smaller">08652056999</td>
+                      <td style="font-size: small">DEEPAK SWAMI</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">Not Available</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">1/6/2025 7:06:51 PM</td>
+                      <td style="font-size: small">JKCT471499</td>
+                      <td style="font-size: small">DEEPAK SWAMI</td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/EditDetail?UserName=JKCT010697"
+                          class="btn btn-warning rounded-0 waves-effect waves-light"
+                          ><i class="fa fa-edit"></i> Edit Detail</a
+                        >
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/R_Password?UserName=JKCT010697"
+                          class="btn btn-secondary waves-effect waves-light"
+                          ><i class="fa fa-key"></i> Reset Password</a
+                        >
+                      </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                      <td style="font-size: smaller" class="sorting_1">
+                        JKCT013956
+                      </td>
+                      <td style="font-size: smaller">
+                        arjuntiwaiarjuntiwari@gmail.com
+                      </td>
+                      <td style="font-size: smaller">7309762129</td>
+                      <td style="font-size: small">Swati Tiwari</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">Not Available</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">12/19/2024 1:14:01 PM</td>
+                      <td style="font-size: small">JKCT261643</td>
+                      <td style="font-size: small">Kajal Tiwari</td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/EditDetail?UserName=JKCT013956"
+                          class="btn btn-warning rounded-0 waves-effect waves-light"
+                          ><i class="fa fa-edit"></i> Edit Detail</a
+                        >
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/R_Password?UserName=JKCT013956"
+                          class="btn btn-secondary waves-effect waves-light"
+                          ><i class="fa fa-key"></i> Reset Password</a
+                        >
+                      </td>
+                    </tr>
+                    <tr role="row" class="even">
+                      <td style="font-size: smaller" class="sorting_1">
+                        JKCT021733
+                      </td>
+                      <td style="font-size: smaller">tiwarisamou@gmail.com</td>
+                      <td style="font-size: smaller">6393925001</td>
+                      <td style="font-size: small">Shyam Kumar Tiwari</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">Not Available</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">12/14/2024 5:14:35 PM</td>
+                      <td style="font-size: small">JKCT794773</td>
+                      <td style="font-size: small">Ram Newal</td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/EditDetail?UserName=JKCT021733"
+                          class="btn btn-warning rounded-0 waves-effect waves-light"
+                          ><i class="fa fa-edit"></i> Edit Detail</a
+                        >
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/R_Password?UserName=JKCT021733"
+                          class="btn btn-secondary waves-effect waves-light"
+                          ><i class="fa fa-key"></i> Reset Password</a
+                        >
+                      </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                      <td style="font-size: smaller" class="sorting_1">
+                        JKCT021836
+                      </td>
+                      <td style="font-size: smaller">
+                        anshcomputerji@gmail.com
+                      </td>
+                      <td style="font-size: smaller">9415990966</td>
+                      <td style="font-size: small">Lal Mani Yadav</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">Not Available</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">1/10/2025 6:17:50 PM</td>
+                      <td style="font-size: small">JKCT866779</td>
+                      <td style="font-size: small">Jautyi Yadav</td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/EditDetail?UserName=JKCT021836"
+                          class="btn btn-warning rounded-0 waves-effect waves-light"
+                          ><i class="fa fa-edit"></i> Edit Detail</a
+                        >
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/R_Password?UserName=JKCT021836"
+                          class="btn btn-secondary waves-effect waves-light"
+                          ><i class="fa fa-key"></i> Reset Password</a
+                        >
+                      </td>
+                    </tr>
+                    <tr role="row" class="even">
+                      <td style="font-size: smaller" class="sorting_1">
+                        JKCT023771
+                      </td>
+                      <td style="font-size: smaller">
+                        jks.mishra123@gmail.com
+                      </td>
+                      <td style="font-size: smaller">7252848664</td>
+                      <td style="font-size: small">Shree Ganesh BA.A</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">Not Available</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">12/14/2024 2:08:49 PM</td>
+                      <td style="font-size: small">JKCT654073</td>
+                      <td style="font-size: small">Shree Ganesh Dan</td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/EditDetail?UserName=JKCT023771"
+                          class="btn btn-warning rounded-0 waves-effect waves-light"
+                          ><i class="fa fa-edit"></i> Edit Detail</a
+                        >
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/R_Password?UserName=JKCT023771"
+                          class="btn btn-secondary waves-effect waves-light"
+                          ><i class="fa fa-key"></i> Reset Password</a
+                        >
+                      </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                      <td style="font-size: smaller" class="sorting_1">
+                        JKCT037329
+                      </td>
+                      <td style="font-size: smaller">palwi424@gmail.com</td>
+                      <td style="font-size: smaller">7347228413</td>
+                      <td style="font-size: small">Palwinder Kaur</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">Not Available</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">12/19/2024 2:13:01 PM</td>
+                      <td style="font-size: small">JKCT961467</td>
+                      <td style="font-size: small">Deepti .</td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/EditDetail?UserName=JKCT037329"
+                          class="btn btn-warning rounded-0 waves-effect waves-light"
+                          ><i class="fa fa-edit"></i> Edit Detail</a
+                        >
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/R_Password?UserName=JKCT037329"
+                          class="btn btn-secondary waves-effect waves-light"
+                          ><i class="fa fa-key"></i> Reset Password</a
+                        >
+                      </td>
+                    </tr>
+                    <tr role="row" class="even">
+                      <td style="font-size: smaller" class="sorting_1">
+                        JKCT074565
+                      </td>
+                      <td style="font-size: smaller">
+                        tiwariprashant0@gmail.com
+                      </td>
+                      <td style="font-size: smaller">6386188125</td>
+                      <td style="font-size: small">Neelam Tiwari</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">Not Available</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">12/28/2024 11:54:05 AM</td>
+                      <td style="font-size: small">JKCT644098</td>
+                      <td style="font-size: small">Neelam Tiwari</td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/EditDetail?UserName=JKCT074565"
+                          class="btn btn-warning rounded-0 waves-effect waves-light"
+                          ><i class="fa fa-edit"></i> Edit Detail</a
+                        >
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/R_Password?UserName=JKCT074565"
+                          class="btn btn-secondary waves-effect waves-light"
+                          ><i class="fa fa-key"></i> Reset Password</a
+                        >
+                      </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                      <td style="font-size: smaller" class="sorting_1">
+                        JKCT096114
+                      </td>
+                      <td style="font-size: smaller">jkgroup1965@gmail.com</td>
+                      <td style="font-size: smaller">9919862863</td>
+                      <td style="font-size: small">Vikash Yadav</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">Not Available</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">12/18/2024 5:37:54 AM</td>
+                      <td style="font-size: small">JKCT654073</td>
+                      <td style="font-size: small">Shree Ganesh Dan</td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/EditDetail?UserName=JKCT096114"
+                          class="btn btn-warning rounded-0 waves-effect waves-light"
+                          ><i class="fa fa-edit"></i> Edit Detail</a
+                        >
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/R_Password?UserName=JKCT096114"
+                          class="btn btn-secondary waves-effect waves-light"
+                          ><i class="fa fa-key"></i> Reset Password</a
+                        >
+                      </td>
+                    </tr>
+                    <tr role="row" class="even">
+                      <td style="font-size: smaller" class="sorting_1">
+                        JKCT170951
+                      </td>
+                      <td style="font-size: smaller">br2189180@gamail.com</td>
+                      <td style="font-size: smaller">9956289017</td>
+                      <td style="font-size: small">Dukhi ram Ram</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">Not Available</td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small"></td>
+                      <td style="font-size: small">1/10/2025 5:01:56 PM</td>
+                      <td style="font-size: small">JKCT554032</td>
+                      <td style="font-size: small">Vikas Kumar Kumar</td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/EditDetail?UserName=JKCT170951"
+                          class="btn btn-warning rounded-0 waves-effect waves-light"
+                          ><i class="fa fa-edit"></i> Edit Detail</a
+                        >
+                      </td>
+                      <td style="font-size: small">
+                        <a
+                          href="/admin/account/R_Password?UserName=JKCT170951"
+                          class="btn btn-secondary waves-effect waves-light"
+                          ><i class="fa fa-key"></i> Reset Password</a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div
+                  class="dataTables_info"
+                  id="tbl1_info"
+                  role="status"
+                  aria-live="polite"
+                >
+                  Showing 1 to 10 of 50 entries
+                </div>
+                <div
+                  class="dataTables_paginate paging_simple_numbers"
+                  id="tbl1_paginate"
+                >
+                  <ul class="pagination">
+                    <li
+                      class="paginate_button page-item previous disabled"
+                      id="tbl1_previous"
+                    >
+                      <a
+                        href="#"
+                        aria-controls="tbl1"
+                        data-dt-idx="0"
+                        tabindex="0"
+                        class="page-link"
+                        >Previous</a
+                      >
+                    </li>
+                    <li class="paginate_button page-item active">
+                      <a
+                        href="#"
+                        aria-controls="tbl1"
+                        data-dt-idx="1"
+                        tabindex="0"
+                        class="page-link"
+                        >1</a
+                      >
+                    </li>
+                    <li class="paginate_button page-item">
+                      <a
+                        href="#"
+                        aria-controls="tbl1"
+                        data-dt-idx="2"
+                        tabindex="0"
+                        class="page-link"
+                        >2</a
+                      >
+                    </li>
+                    <li class="paginate_button page-item">
+                      <a
+                        href="#"
+                        aria-controls="tbl1"
+                        data-dt-idx="3"
+                        tabindex="0"
+                        class="page-link"
+                        >3</a
+                      >
+                    </li>
+                    <li class="paginate_button page-item">
+                      <a
+                        href="#"
+                        aria-controls="tbl1"
+                        data-dt-idx="4"
+                        tabindex="0"
+                        class="page-link"
+                        >4</a
+                      >
+                    </li>
+                    <li class="paginate_button page-item">
+                      <a
+                        href="#"
+                        aria-controls="tbl1"
+                        data-dt-idx="5"
+                        tabindex="0"
+                        class="page-link"
+                        >5</a
+                      >
+                    </li>
+                    <li class="paginate_button page-item next" id="tbl1_next">
+                      <a
+                        href="#"
+                        aria-controls="tbl1"
+                        data-dt-idx="6"
+                        tabindex="0"
+                        class="page-link"
+                        >Next</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
